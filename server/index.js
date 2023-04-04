@@ -8,8 +8,7 @@ const cors = require('cors');
 
 
 // requerimos la conexion con la base de datos
-const { mongoose } = require('./database'); // Al usar los {} solo obtenemos la conexion que le llamamos mongoose y no todo el  fichero
-
+const { mongoose_coches, mongoose_usuarios, mongoose_pedidos} = require('./database'); // Al usar los {} solo obtenemos la conexion que le llamamos mongoose y no todo el  fichero
 
 //////////////////// setings
 // El set se usa para crear una variable que va a poder ser accedida desde cualquier parte de mi aplicacion
@@ -35,14 +34,14 @@ app.use(express.json()); // Antes se usaba el bodyparser este es mas moderno
 
 //////////////////// Routes
 // Ahora aqui lo que hacemos es decirle a nuestra aplicacion que use las rutas que estan en el fichero de routes
-app.use('/coches',require('./routes/routes')); // lo de /coches es para que añada ese prefijo siempre y asi no tener que ponerlo en cada ruta
-
-
+app.use('/coches',require('./routes/routes_coches')); // lo de /coches es para que añada ese prefijo siempre y asi no tener que ponerlo en cada ruta
+app.use('/pedidos',require('./routes/routes_pedidos')); 
+app.use('/usuarios',require('./routes/routes_usuarios')); 
 
 
 
 // Starting server
 app.listen(app.get('port'), () => {
-    console.log("Server listening on port 3000");
+    console.log("Server listening on port " + app.get('port'));
 })
 
