@@ -1,0 +1,224 @@
+<div class="">
+    <div class=" row">
+        <div class="col s4">
+            <div class=" card ">
+                <div class=" card-content">
+                    <form #cocheForm="ngForm" novalidate (ngSubmit)="addCoche(cocheForm) ">
+                        <div class="row">
+                            <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="cocheService.selectedCoche._id">
+                            
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input required class="validate" type="text" name="marca" #marca="ngModel" [(ngModel)]="cocheService.selectedCoche.marca" placeholder="Marca">
+                                    <label>Marca</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input required class="validate" type="text" name="modelo" #modelo="ngModel" [(ngModel)]="cocheService.selectedCoche.modelo" placeholder="Modelo">
+                                    <label for="modelo">Modelo</label>
+                                </div>
+                            </div>
+
+                            <div class="row m6">
+                                <div class="input-field col s6">
+                                    <div>
+                                        <label for="color">Color</label>
+                                    </div>
+                                    <input type="color" class="validate" name="color" #color="ngModel" [(ngModel)]="cocheService.selectedCoche.color">
+                                </div>
+                                
+                                <div class="input-field col s6">
+                                    <div>
+                                        <label for="etiqueta">Etiqueta</label>
+                                    </div>
+
+                                    <div>
+                                        <!-- <input required type="text" name="etiqueta" #etiqueta="ngModel" [(ngModel)]="cocheService.selectedCoche.etiqueta" placeholder="Etiqueta"> -->
+                                        <select required class="icons" name="etiqueta" #etiqueta="ngModel" [(ngModel)]="cocheService.selectedCoche.etiqueta" >
+                                            <option value="" disabled selected>Choose your option</option> 
+                                            <option value="B" data-icon="./icons/etiqueta_b.jpg">B</option>
+                                            <option value="C" data-icon="./icons/etiqueta_c.jpg">C</option>
+                                            <option value="0 emisiones" data-icon="./icons/etiqueta_0.jpg">0 emisiones</option> 
+                                            <option value="ECO" data-icon="./icons/etiqueta_eco.jpg">ECO</option> 
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="input-field col s12 m6">
+                            <label>Images in select</label>
+                            </div> -->
+
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input required class="validate" type="number" name="puertas" #puertas="ngModel" [(ngModel)]="cocheService.selectedCoche.puertas" placeholder="Puertas">
+                                    <label for="puertas">Puertas</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input required class="validate" type="number" name="cv" #cv="ngModel" [(ngModel)]="cocheService.selectedCoche.cv" placeholder="cv">
+                                    <label for="cv">CV</label>
+                                </div>
+                            </div>
+                            <div class="input-field col s12">
+                                <input required  type="number" class="validate" name="a_matricula" #a_matricula="ngModel" [(ngModel)]="cocheService.selectedCoche.a_matricula">
+                                <label for="a_matricula">Año de matriculación</label>
+                            </div>
+
+                            <div class="row">
+                                <!-- <div class="input-field col s6">
+                                    <input required type="number" name="cantidad" #cantidad="ngModel" [(ngModel)]="cocheService.selectedCoche.cantidad">
+                                    <label for="cantidad">Cantidad</label>
+                                </div> -->
+                                <div class="input-field col s6">
+                                    <input required type="number" name="cantidad" #cantidad="ngModel" [(ngModel)]="cocheService.selectedCoche.cantidad" placeholder="cantidad">
+                                    <label for="cantidad">Cantidad</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input required type="number" name="precio" #precio="ngModel" [(ngModel)]="cocheService.selectedCoche.precio" placeholder="Precio">
+                                    <label for="precio">Precio</label>
+                                </div>
+                            </div>
+
+                            
+                            
+                            <div class="row m6">
+                                <div class="input-field col s6">
+                                    <div >
+                                        <label>Propulsion</label>   
+                                    </div>
+                                    <div>
+                                        <select ngDefaultControl class="browser-default"  name="propulsion" #propulsion="ngModel" [(ngModel)]="cocheService.selectedCoche.propulsion" >
+                                            <option value="" disabled selected>Propulsion del coche</option>
+                                            <option value="Electrico">Electrico</option>
+                                            <option value="Diesel">Diesel</option>
+                                            <option value="Hibrido">Hibrido</option>
+                                            <option value="Hidrogeno">Hidrogeno</option>
+                                        </select> 
+                                    </div>
+                                </div>
+                                <div class="input-field  col s6">
+                                    <div>                               
+                                        <label>Carroceria</label>
+                                    </div>
+                                    <div>
+                                        <select required ngDefaultControl class="browser-default"  name="carroceria" #propulsion="ngModel" [(ngModel)]="cocheService.selectedCoche.carroceria">
+                                            <option value="" disabled selected>Carrocería del coche</option>
+                                            <option value="Sedán">Sedán</option>
+                                            <option value="Berlina">Berlina</option>
+                                            <option value="SUV">SUV</option>
+                                            <option value="Coupé">Coupé</option>
+                                            <option value="Cabrio">Cabrio</option>
+                                            <option value="Familiar">Familiar</option>
+                                            <option value="Compacto">Compacto</option>
+                                            <option value="Monovolumen">Monovolumen</option>
+                                            <option value="Furgoneta">Furgoneta</option>
+                                            <option value="Furgon">Furgon</option>
+                                            <option value="Autocaravana">Autocaravana</option>
+                                            <option value="Pick Up">Pick Up</option>
+                                            <option value="Clasico">Clasico</option>
+                                            <option value="Super deportivo">Coupé</option>
+                                        </select>    
+                                    </div>
+                                </div>
+                            </div>
+
+                           
+                              
+
+                            <div class="row m6">
+                            </div>
+                            
+
+                            <div class="input-field">
+                                <div>
+                                    <label>Tracción</label>
+                                </div>
+                                <select required class="browser-default" name="traccion" #traccion="ngModel" [(ngModel)]="cocheService.selectedCoche.traccion">
+                                  <option value="" disabled selected>Tracción del coche</option>
+                                  <option value="FWD">FWD</option>
+                                  <option value="RWD">RWD</option>
+                                  <option value="AWD">AWD</option>
+                                  <option value="4WD">4WD</option>
+                                  <option value="4x4">4x4</option>
+                                </select>    
+                            </div>
+                            
+                            <div class="card-action row">
+                                <!-- (click)="addCoche(cocheForm)" -->
+                                <a class="btn left" (click)="addCoche(cocheForm)">Save
+                                    <i class="material-icons right"> save </i>
+                                </a>
+                                <a class="btn right"  (click)="resetForm(cocheForm, 1)">Clean
+                                    <i class = "material-icons right"> clear_all </i> 
+                                </a>
+                                
+                            </div>
+                        </div>
+                        <!-- Para que funcione  -->
+                        <button hidden></button> 
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col s8">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Año de matriculación </th>
+                    <th>Cantidad</th>
+                    <th>Carroceria</th>
+                    <th>Color</th>
+                    <th>CV</th>
+                    <th>Etiqueta</th>
+                    <th>Propulsión</th>
+                    <th>Puertas</th>
+                    <TH>Precio</TH>
+                    <th class="input-field col s12 m6">
+                        <div>
+                            <label for="">BUSCAR:</label>
+                            <input (input)="buscar()" type="text" [(ngModel)]="busqueda"> 
+                        </div>
+                        <div>
+                            <select [(ngModel)]="criterio">
+                                <option value="" disabled selected>Buscar por:</option>
+                                <option value="ID">ID</option>
+                                <option value="MARCA">MARCA</option>
+                                <option value="MODELO">MODELO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button class="btn" (click)="getCoches()">Todos</button>
+                        </div>
+                    </th>
+                <tbody>
+
+                    <tr *ngFor="let coche of cocheService.coches">
+                        <td> {{coche._id}} </td>
+                        <td> {{coche.marca}} </td>
+                        <td> {{coche.modelo}} </td>
+                        <td> {{coche.a_matricula}} </td>
+                        <td> {{coche.cantidad}} </td>
+                        <td> {{coche.carroceria}} </td>
+                        <td> {{coche.color}} </td>
+                        <td> {{coche.cv}} </td>
+                        <td> {{coche.etiqueta}} </td>
+                        <td> {{coche.propulsion}} </td>
+                        <td> {{coche.puertas}} </td>
+                        <td> {{coche.precio}} </td>
+                        <td>
+                            <a (click)="editCoche(coche)" class="btn">
+                                <i class="material-icons">edit</i>
+                            </a>
+                           
+                            <a (click)="deleteCoche(coche._id)" class="btn">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
