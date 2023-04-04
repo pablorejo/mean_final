@@ -26,7 +26,6 @@
     - [Scripts](#scripts)
 - [npm](#npm)
   - [nodemon](#nodemon)
-    - [Opcion -D](#opcion--d)
   - [morgan](#morgan)
     - [Que hace](#que-hace)
   - [mongoose](#mongoose)
@@ -56,11 +55,11 @@ express deprecated res.sendfile: Use res.sendFile instead app/routes.js:22:13
 ```
 
 ## Ejecutar con nodemon
-Para ejecutar con nodemon primero ver la seccio [nodemon](#nodemon). 
+Para ejecutar con nodemon primero ver la seccion [nodemon](#nodemon). 
 
 La ejecucion es sencilla solo basta con ejecutar:
 ```bash 
-node run dev
+nodemon server/index.js
 ```
 ## Angular
 
@@ -332,21 +331,11 @@ npm es un gestor de paquetes para node.js. Nosotros lo usaremos para instalar
 ## nodemon
 Instalar:
 ```bash
-npm install nodemon -D
+sudo npm install nodemon -g
 ```
 
 Este solo nos ayudara a que cuando guardemos los cambios el servidor se reiniciara solo.
-
-### Opcion -D
-Esta opcion se usa porque el paquete no es una dependencia sino que es un paquete para ayudar al desarollo. Por eso se usa el -D (developer).
-
-Esto se puede encontrar en el paquete [package.json](#packagejson) de esta manera:
-
-```json
-  "devDependencies": {
-    "nodemon": "^2.0.21"
-  }
-```
+Hay que instalarlo de manera general sino no funciona
 
 ## morgan
 Para instalar morgan:
