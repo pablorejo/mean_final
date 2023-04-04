@@ -37,14 +37,16 @@ MEAN utiliza las tecnologías de `MongoDB, Express, AngulaJS y NodeJS` para hace
 
 # Ejecucion de la practica
 Para ejecutar la practica primero tendremos que estar seguros de que esta corriendo mongo:
-> sudo systemctl status mongod
-
+```bash
+sudo systemctl status mongod
+```
 En caso de que no estea lo iniciamos con start
 
 
 Por ultimo ejecutamos nuestro servidor:
-> node server.js
-
+```bash 
+node server.js
+```
 El cual si todo sale bien deberia aparecer algo como esto
 
 ```text
@@ -57,19 +59,24 @@ express deprecated res.sendfile: Use res.sendFile instead app/routes.js:22:13
 Para ejecutar con nodemon primero ver la seccio [nodemon](#nodemon). 
 
 La ejecucion es sencilla solo basta con ejecutar:
-> node run dev
-
+```bash 
+node run dev
+```
 ## Angular
 
 Para iniciar angular usar:
-> ng server -o
+```bash 
+ng server -o
+```
 
 El `-op` es para que se abra en el navegador por defecto
 
 ### ERRORES
 Si te da error es posible que no hayas configurado aun un proyecto de angular con lo cual debes usar el siguiente comando
 
-> ng new angular
+```bash
+ng new angular
+```
 
 `angular` es el nombre que le damos al proyecto
 
@@ -94,36 +101,54 @@ Por ultimo el fichero `server.js` en el que estará la configuración del servid
 Aqui vamos a tener todos los ficheros para hacer el frontend con angular.
 
 Para crear todo esto primero y antes que nada tenemos que tener instalado `angular/cli` de esta manera:
-> npm -g install angular/cli
+```bash
+npm -g install angular/cli
+```
 
 Para comprbar que esta instalado de manera correcta hacemos un 
-> npm -g ls
+```bash
+npm -g ls
+```
 
 Y debera aparecer todos los paquetes que tienes instalado a nivel gloval en tu so y entre ellos debe aparacer `angular/clip`
 
 `Para crear el proyecto`
 Desde la carpeta principal hacemos un:
-> ng new angular
+```bash
+ng new angular
+```
+
 Donde aquí angular es el nombre del proyecto que vamos a crear
 
 ### Componentes
 Los componentes los guardaremos en la carpeta components que esta en src/app/
 Y los crearemos de esta manera
->ng generate component coches
+```bash
+ng generate component coches
+```
 O de manera simplificada así:
->ng g c coches
+```bash
+ng g c coches
+```
+
 
 ### servicios
 Para crear los ficheros de servicios iremos a la carpeta de services en el directorio src/app/
 Ejecutamos:
-> ng g s coche
+```bash
+ng g s coche
+```
 
 Los servicios me permiten definir metodos que pueden ser usados en cualquier parte de mi aplicacion
 
 ### models
 Para crear los ficheros de models iremos a la carpeta de models en el directorio src/app/
 Ejecutamos:
-> ng g class coche
+
+```bash
+ng g class coche
+```
+
 
 ## server
 Aqui estaran todos los fichero del backend es decir el programa que se encargara de la logica de la aplicación
@@ -306,7 +331,9 @@ npm es un gestor de paquetes para node.js. Nosotros lo usaremos para instalar
 
 ## nodemon
 Instalar:
-> npm install nodemon -D
+```bash
+npm install nodemon -D
+```
 
 Este solo nos ayudara a que cuando guardemos los cambios el servidor se reiniciara solo.
 
@@ -323,8 +350,9 @@ Esto se puede encontrar en el paquete [package.json](#packagejson) de esta maner
 
 ## morgan
 Para instalar morgan:
-> npm install morgan
-
+```bash
+npm install morgan
+```
 Este se llamara desde el fichero [index.js]
 
 ### Que hace
@@ -345,14 +373,17 @@ Esto se hace en el fichero
 
 ## express
 Para instalar express se usa:
-> npm install express --save
+```bash
+npm install express --save
+```
 
 Proporciona mecanismos de escritura de manejadores de peticiones con diferentes verbos HTTP en diferentes caminos URL (rutas).
 
 ## cors
 Necesitamos instalarlo:
-> npm install cors
-> 
+```bash
+npm install cors
+```
 cors lo que hace es hacer de midleware y nos permite hacer que angular funcione bien con nuestro servidor.
 
 
