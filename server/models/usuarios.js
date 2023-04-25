@@ -5,7 +5,7 @@ const {Schema} = mongoose_usuarios;//Schema que va a modelar el objeto en la bas
 
 
 var usuario = new Schema({
-    
+    nombre: String,
     role:{
         type:		String,
         enum:		['Administrador', 'Usuario'],
