@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Validators } from '@angular/forms';
+
+
+
+// @NgModule({
+//   declarations: [],
+//   imports: [
+//     CommonModule
+//   ]
+// })
 
 // Definimos estos tipos para que solo se puedan poner valores de esta manera.
+
 type Carroceria = 'Sedán'| 'Berlina'| 'SUV'| 'Coupé'| 'Cabrio' | 'Familiar'| 'Compacto'| 'Monovolumen'|'Furgoneta'|'Furgon'|'Autocaravana'| 'Pick Up'| 'Clasico'| 'Super deportivo';
 type Propulsion = 'Electrico'| 'Diesel'| 'Hibrido'| 'Hidrogeno';
 type Traccion = 'FWD'| 'RWD'| 'AWD'| '4WD'| '4x4';
 
 export class CocheModule { 
-
+  
   _id: string ;
   marca:          string;
   modelo:         string;
@@ -22,7 +31,7 @@ export class CocheModule {
   propulsion:     Propulsion;
   carroceria:     Carroceria;
   traccion:       Traccion;
-
+  
   constructor (
     _id = '', 
     marca= '', 
@@ -37,8 +46,8 @@ export class CocheModule {
     traccion: Traccion = 'FWD', 
     propulsion: Propulsion = 'Electrico', 
     carroceria: Carroceria = 'Sedán'
-
-  ){
+  )
+  {
     this._id = _id;
     this.marca = marca;
     this.modelo = modelo;
@@ -54,3 +63,6 @@ export class CocheModule {
     this.traccion =traccion;
   }
 }
+
+
+

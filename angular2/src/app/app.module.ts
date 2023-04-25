@@ -9,11 +9,14 @@ import { CochesComponent } from './components/coches/coches.component';
 import { HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { PedidosComponent } from './components/pedidos/pedidos.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { UsuariosComponent } from './components/usuarios/usuarios.component';
 @NgModule({
   declarations: [
     AppComponent, // Declaracion del componente principar 
-    CochesComponent, // Declaramos el componente de coches
+    CochesComponent, PedidosComponent, NavbarComponent, UsuariosComponent, // Declaramos el componente de coches
   ],
   imports: [
     BrowserModule,

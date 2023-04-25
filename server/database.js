@@ -4,9 +4,7 @@ const mongoose_coches = require('mongoose');
 const URI_COCHES = 'mongodb://localhost:27017/coches';
 
 // Conectamos con esta extension
-mongoose_coches.connect(URI_COCHES)
-    .then(db => console.log('DB is connected'))
-    .catch(err => console.error('ERROR database: ' + err));
+mongoose_coches.createConnection(URI_COCHES);
 
 
 // Exportamos esto para tener la conexión
@@ -20,9 +18,7 @@ const mongoose_usuarios = require('mongoose');
 const URI_USUARIOS = 'mongodb://localhost:27017/usuarios';
 
 // Conectamos con esta extension
-mongoose_usuarios.connect(URI_USUARIOS)
-    .then(db => console.log('DB is connected'))
-    .catch(err => console.error('ERROR database: ' + err));
+mongoose_usuarios.createConnection(URI_USUARIOS);
 
 
 // Exportamos esto para tener la conexión
@@ -35,9 +31,7 @@ const mongoose_pedidos = require('mongoose');
 const URI_PEDIDOS = 'mongodb://localhost:27017/pedidos';
 
 // Conectamos con esta extension
-mongoose_pedidos.connect(URI_PEDIDOS)
-    .then(db => console.log('DB is connected'))
-    .catch(err => console.error('ERROR database: ' + err));
+mongoose_pedidos.createConnection(URI_PEDIDOS);
 
 
 // Exportamos esto para tener la conexión

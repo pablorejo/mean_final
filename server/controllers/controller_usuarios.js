@@ -44,19 +44,8 @@ usuariosCtrl.addUsuario = async (req,res) => {
         
     try {
         const Usuario = new Usuario({ // Creamos un nuevo objeto Usuario que recibimos en el body del request 
-            marca:          req.body.marca,          
-            modelo:         req.body.modelo,
-            color:          req.body.color,
-            etiqueta:       req.body.etiqueta,
-            puertas:        req.body.puertas,
-            cv:             req.body.cv,
-            a_matricula:    req.body.a_matricula,
-            cantidad:       req.body.cantidad,
-            precio:         req.body.precio,
-
-            propulsion:     req.body.propulsion,
-            carroceria:     req.body.carroceria,
-            traccion:       req.body.traccion
+            nombre:         req.body.nombre,
+            role:           req.body.role
         });
         await Usuario.save(); // Esto tambien puede tomar bastante tiempo por eso le ponemos el await
         res.json({
@@ -80,18 +69,8 @@ usuariosCtrl.updateUsuario = async (req, res) => {
     try {
     
         const Usuario = {
-            marca         :       req.body.marca,         
-            modelo        :       req.body.modelo,
-            color         :       req.body.color,
-            etiqueta      :       req.body.etiqueta,
-            puertas       :       req.body.puertas,
-            cv            :       req.body.cv,
-            a_matricula   :       req.body.a_matricula,
-            cantidad     :        req.body.cantidad,
-            precio        :       req.body.precio,
-            propulsion    :       req.body.propulsion,
-            carroceria    :       req.body.carroceria,
-            traccion      :       req.body.traccion
+            nombre:         req.body.nombre,
+            role:           req.body.role
         }
         await Usuario.findByIdAndUpdate(id,{$set: Usuario},{new: true}); // El new:true es para que en caso de que no exista lo cree
         res.json({

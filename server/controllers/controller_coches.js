@@ -17,9 +17,9 @@ const cochesCtrl = {};
 /******** MÉTODOS GET *********/
 // GET: Todos los coches de la base de datos
 cochesCtrl.findAllCoches = async (req, res) => {
+    console.log(req + "\nTodo esta ok");
     const coches = await Coche.find();
     res.json(coches);
-    console.log(req);
 };
 
 // GET: Coche con un id determinado
@@ -94,6 +94,7 @@ cochesCtrl.addCoche = async (req,res) => {
             traccion:       req.body.traccion
         });
         await coche.save(); // Esto tambien puede tomar bastante tiempo por eso le ponemos el await
+        console.log("Ok coche guardado\n");
         res.json({
             status: "Coche guardado" // Enviamos un mensaje de estado de guardado
         })

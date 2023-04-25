@@ -11,7 +11,7 @@ import { CocheModule } from 'src/app/models/coche/coche.module';
 
 
 // Importamos el servicio de coches para que se pueda usar en el modelo de html
-import { CocheService } from '../../services/coche.service';
+import { CocheService } from '../../services/coches/coche.service';
 
 declare var M: any; // Esto es de materialize para enviar alertas a los usuarios
 
@@ -29,26 +29,10 @@ declare var M: any; // Esto es de materialize para enviar alertas a los usuarios
 // Exportamos la clase y la definimos
 export class CochesComponent {
 
-  // myForm = new FormGroup({
-  //   marca: new FormControl('', [
-  //     Validators.required,
-  //     Validators.minLength(3)
-  //   ]),
-  //   modelo: new FormControl('', [
-  //     Validators.required,
-  //     Validators.email
-  //   ]),
-  //   carroceria: new FormControl('', [
-  //     Validators.required,
-  //     Validators.minLength(10)
-  //   ])
-  // });
 
-  // onSubmit() {
-  //   console.log(this.myForm.value);
-  // }
   busqueda: string = ''; // TExto por el que se va a buscar
   criterio: string = ''; // Criterio para elejir la busqueda
+  
   buscar(){
     console.log("Buscando " + this.criterio +" que coincida con " + this.busqueda);
     

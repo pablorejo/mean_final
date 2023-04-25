@@ -13,7 +13,8 @@ var pedido = new Schema({
     fecha_pedido:	{
         type: Date, 
         default: Date.now    
-    }
+    },
+    direccion_de_envio: String
 });
 
 
@@ -21,4 +22,4 @@ var pedido = new Schema({
 
 const Pedido = mongoose_pedidos.model('Pedido', pedido);
 
-module.exports = Pedido;    //Nombre del modulo
+module.exports = Pedido; //Nombre del modulo

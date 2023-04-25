@@ -6,7 +6,6 @@ const {Schema} = mongoose_coches;//Schema que va a modelar el objeto en la base 
 
 var coche = new Schema({
     marca:         {type: String, required: true},
-    // marca:          String,
     modelo:         String,
     color:          String,
     etiqueta:       String,
@@ -32,6 +31,6 @@ var coche = new Schema({
 
 // Exportarlo como module para poderlo utilizar en otro archivo
 
-const Coche = mongoose_coches.model('Coche', coche);
+const Coches = mongoose_coches.model('Coche', coche);
 
-module.exports = Coche;    //Nombre del modulo
+module.exports = Coches;    //Nombre del modulo

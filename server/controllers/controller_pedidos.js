@@ -43,19 +43,10 @@ pedidosCtrl.addPedido = async (req,res) => {
         
     try {
         const Pedido = new Pedido({ // Creamos un nuevo objeto Pedido que recibimos en el body del request 
-            marca:          req.body.marca,          
-            modelo:         req.body.modelo,
-            color:          req.body.color,
-            etiqueta:       req.body.etiqueta,
-            puertas:        req.body.puertas,
-            cv:             req.body.cv,
-            a_matricula:    req.body.a_matricula,
-            cantidad:       req.body.cantidad,
-            precio:         req.body.precio,
-
-            propulsion:     req.body.propulsion,
-            carroceria:     req.body.carroceria,
-            traccion:       req.body.traccion
+            id_usuario:     req.body.id_usuario,
+            artículos:      req.body.artículos,
+            fecha_pedido:   req.body.fecha_pedido,  
+            direccion_de_envio: req.body.direccion_de_envio  
         });
         await Pedido.save(); // Esto tambien puede tomar bastante tiempo por eso le ponemos el await
         res.json({
@@ -79,18 +70,10 @@ pedidosCtrl.updatePedido = async (req, res) => {
     try {
     
         const Pedido = {
-            marca         :       req.body.marca,         
-            modelo        :       req.body.modelo,
-            color         :       req.body.color,
-            etiqueta      :       req.body.etiqueta,
-            puertas       :       req.body.puertas,
-            cv            :       req.body.cv,
-            a_matricula   :       req.body.a_matricula,
-            cantidad     :        req.body.cantidad,
-            precio        :       req.body.precio,
-            propulsion    :       req.body.propulsion,
-            carroceria    :       req.body.carroceria,
-            traccion      :       req.body.traccion
+            id_usuario:     req.body.id_usuario,
+            artículos:      req.body.artículos,
+            fecha_pedido:   req.body.fecha_pedido,  
+            direccion_de_envio: req.body.direccion_de_envio  
         }
         await Pedido.findByIdAndUpdate(id,{$set: Pedido},{new: true}); // El new:true es para que en caso de que no exista lo cree
         res.json({
