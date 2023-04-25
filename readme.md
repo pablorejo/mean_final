@@ -33,6 +33,9 @@
   - [cors](#cors)
 # MEAN
 MEAN utiliza las tecnologías de `MongoDB, Express, AngulaJS y NodeJS` para hacer aplicaciones web y lo bueno de todas ellas es que utiliza el mismo lenguaje de programación, `Javascript`. En resumen este tipo de aplicaciones consiste en desarrollar una `API REST` con NodeJS y Express y esta API puede hacer un `CRUD (Create-Read-Upload-Delete)` a la base de datos de MongoDB. Con este API REST se comunicará AngularJS (que es el Frontend) haciendo peticiones (Get, Post, Put y Delete) cuyos datos se tendrán actualizados en la web (Single-Page-Application): 
+# Preparacion para la practica
+Para preparar la practica hay que seguir los siguiente pasos
+## Instalar mongodb
 
 # Ejecucion de la practica
 Para ejecutar la practica primero tendremos que estar seguros de que esta corriendo mongo:

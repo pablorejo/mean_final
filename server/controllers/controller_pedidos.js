@@ -1,5 +1,5 @@
-// const Pedido = require('../models/pedidos');
-const Pedido = require('mongoose');
+const Pedido = require('../models/pedidos');
+// const Pedido = require('mongoose');
 
 // Creamos un objeto que va a contener las funciones.
 const pedidosCtrl = {};

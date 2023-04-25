@@ -1,5 +1,5 @@
-// const Usuario = require('../models/usuarios');
-const Usuario = require('mongoose');
+const Usuario = require('../models/usuarios');
+// const Usuario = require('mongoose');
 
 
 // Creamos un objeto que va a contener las funciones.

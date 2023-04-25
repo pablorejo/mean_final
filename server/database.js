@@ -16,7 +16,7 @@ mongoose_coches.exports = mongoose_coches;
 
 
 ////////////////////////////////// Base de datos de los usuarios
-const mongoose_usuarios= require('mongoose');
+const mongoose_usuarios = require('mongoose');
 const URI_USUARIOS = 'mongodb://localhost:27017/usuarios';
 
 // Conectamos con esta extension
@@ -31,7 +31,7 @@ mongoose_usuarios.exports = mongoose_usuarios;
 
 
 ////////////////////////////////// Base de datos de los pedidos
-const mongoose_pedidos= require('mongoose');
+const mongoose_pedidos = require('mongoose');
 const URI_PEDIDOS = 'mongodb://localhost:27017/pedidos';
 
 // Conectamos con esta extension

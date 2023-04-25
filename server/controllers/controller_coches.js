@@ -1,5 +1,5 @@
 // const Coche = require('../models/coches');
-const Coche = require('mongoose');
+const Coche = require('../models/coches');
 
 
 
@@ -19,7 +19,7 @@ const cochesCtrl = {};
 cochesCtrl.findAllCoches = async (req, res) => {
     const coches = await Coche.find();
     res.json(coches);
-
+    console.log(req);
 };
 
 // GET: Coche con un id determinado
