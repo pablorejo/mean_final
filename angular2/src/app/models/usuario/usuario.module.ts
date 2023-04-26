@@ -15,18 +15,18 @@ type Role = 'Administrador'| 'Usuario';
 export class UsuarioModule { 
   
   _id:              string;
-  tipo_de_usuario:  Role;
+  role:  Role;
   nombre:           string;
   
   constructor (
-    _id = '12',
-    tipo_de_usuario: Role = 'Usuario', 
+    _id = '',
+    role: Role = 'Usuario', 
     nombre: ''
   )
   {
     this.nombre = nombre;
     this._id = _id;
-    this.tipo_de_usuario = tipo_de_usuario;
+    this.role = role;
 
   }
 }

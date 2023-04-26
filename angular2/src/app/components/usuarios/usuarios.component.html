@@ -28,7 +28,7 @@
                     <tr *ngFor="let usuario of usuarioServices.usuarios">
                         <td> {{usuario._id}} </td>
                         <td> {{usuario.nombre}} </td>
-                        <td> {{usuario.tipo_de_usuario}} </td>
+                        <td> {{usuario.role}} </td>
                         <td>
                             <a (click)="editUsuario(usuario)" class="btn">
                                 <i class="material-icons">edit</i>

@@ -18,14 +18,16 @@ usuariosCtrl.findByID = async (req, res) => {
     const id = req.params.id;
 
     try{
-        const Usuario = await Usuario.findById(id);
-        res.json(Usuario); // Enviamos la respuesta
+        const usuario = await Usuario.findById(id);
+        res.json(usuario); // Enviamos la respuesta
+        return usuario;
     }
     catch (error) {
         res.json({
             status: -1,
             statusText: "ID no encontrado"
         })
+        return 0;
     }
 };
 
@@ -35,19 +37,21 @@ usuariosCtrl.findByID = async (req, res) => {
 /********* METODOS POST: ***********/
 //POST: Añadir un Usuario 
 usuariosCtrl.addUsuario = async (req,res) => {
-    console.log(req.body);
+    console.log(req.body + "\n Añadiendo usuario");
 
         
         // De esta forma no funciona bien el angular. No se muy bien el porque.
         // const Usuario = new Usuario(req.body); // Creamos un nuevo objeto Usuario que recibimos en el body del request 
-        
+
         
     try {
-        const Usuario = new Usuario({ // Creamos un nuevo objeto Usuario que recibimos en el body del request 
+        // console.log(req);
+        const usuario = new Usuario({ // Creamos un nuevo objeto Usuario que recibimos en el body del request 
             nombre:         req.body.nombre,
             role:           req.body.role
         });
-        await Usuario.save(); // Esto tambien puede tomar bastante tiempo por eso le ponemos el await
+        console.log("llego");
+        await usuario.save(); // Esto tambien puede tomar bastante tiempo por eso le ponemos el await
         res.json({
             status: "Usuario guardado" // Enviamos un mensaje de estado de guardado
         })
@@ -72,6 +76,7 @@ usuariosCtrl.updateUsuario = async (req, res) => {
             nombre:         req.body.nombre,
             role:           req.body.role
         }
+        
         await Usuario.findByIdAndUpdate(id,{$set: Usuario},{new: true}); // El new:true es para que en caso de que no exista lo cree
         res.json({
             status: 0,
@@ -96,6 +101,9 @@ usuariosCtrl.deleteUsuario = async (req, res) =>{
         statusText: "Usuario eliminado con exito"
     })
 };
+
+
+
 
 
 

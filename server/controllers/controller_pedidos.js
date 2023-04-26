@@ -17,8 +17,8 @@ pedidosCtrl.findByID = async (req, res) => {
     const id = req.params.id;
 
     try{
-        const Pedido = await Pedido.findById(id);
-        res.json(Pedido); // Enviamos la respuesta
+        const pedido = await Pedido.findById(id);
+        res.json(pedido); // Enviamos la respuesta
     }
     catch (error) {
         res.json({
@@ -42,13 +42,13 @@ pedidosCtrl.addPedido = async (req,res) => {
         
         
     try {
-        const Pedido = new Pedido({ // Creamos un nuevo objeto Pedido que recibimos en el body del request 
+        const pedido = new Pedido({ // Creamos un nuevo objeto Pedido que recibimos en el body del request 
             id_usuario:     req.body.id_usuario,
             artículos:      req.body.artículos,
             fecha_pedido:   req.body.fecha_pedido,  
             direccion_de_envio: req.body.direccion_de_envio  
         });
-        await Pedido.save(); // Esto tambien puede tomar bastante tiempo por eso le ponemos el await
+        await pedido.save(); // Esto tambien puede tomar bastante tiempo por eso le ponemos el await
         res.json({
             status: "Pedido guardado" // Enviamos un mensaje de estado de guardado
         })
@@ -69,13 +69,13 @@ pedidosCtrl.updatePedido = async (req, res) => {
     const { id } = req.params; //Guardamos el id que recibimos por request
     try {
     
-        const Pedido = {
+        const pedido = {
             id_usuario:     req.body.id_usuario,
             artículos:      req.body.artículos,
             fecha_pedido:   req.body.fecha_pedido,  
             direccion_de_envio: req.body.direccion_de_envio  
         }
-        await Pedido.findByIdAndUpdate(id,{$set: Pedido},{new: true}); // El new:true es para que en caso de que no exista lo cree
+        await pedido.findByIdAndUpdate(id,{$set: Pedido},{new: true}); // El new:true es para que en caso de que no exista lo cree
         res.json({
             status: 0,
             statusText: "Pedido actualizado"

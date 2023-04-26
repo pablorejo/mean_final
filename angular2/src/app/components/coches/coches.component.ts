@@ -34,6 +34,11 @@ export class CochesComponent {
     this.cocheService = cocheService;
   }
 
+  ngOnInit(){
+    console.log("iniciando");
+    this.getCoches();
+  }
+
 
   busqueda: string = ''; // TExto por el que se va a buscar
   criterio: string = ''; // Criterio para elejir la busqueda

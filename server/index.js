@@ -8,7 +8,7 @@ const cors = require('cors');
 
 
 // requerimos la conexion con la base de datos
-const { mongoose_coches, mongoose_usuarios, mongoose_pedidos} = require('./database'); // Al usar los {} solo obtenemos la conexion que le llamamos mongoose y no todo el  fichero
+const { mongoose_coches } = require('./database'); // Al usar los {} solo obtenemos la conexion que le llamamos mongoose y no todo el  fichero
 
 //////////////////// setings
 // El set se usa para crear una variable que va a poder ser accedida desde cualquier parte de mi aplicacion
@@ -20,7 +20,8 @@ app.set('port',process.env.PORT || 3000) // Es decir aquí creamos una variable 
 // le pasamos el parametro dev que simplemente es para ver los mensajes por consola
 app.use(morgan('dev'));
 
-app.use(cors({ origin:'http://localhost:4200'}));
+// app.use(cors({ origin:'http://localhost:4200'}));
+app.use(cors());
 
 
 

@@ -5,26 +5,28 @@ const router = express.Router();
 
 
 //  Requerimos los controladores
-const pedidosCtrl = require('../controllers/controller_pedidos');
+const usurariosCtrl = require('../controllers/controller_usuarios');
 
 
 
 
 /****** RUTAS PARA LAS FUNCIONES DEL FICHERO CONTROLLER.JS: *******/
 // Devolver todos los Pedidos
-router.get('/', pedidosCtrl.findAllPedidos);
+router.get('/', usurariosCtrl.findAllusuarios);
 // Devolver un coche con un ID determinado
-router.get('/:id', pedidosCtrl.findByID);
+router.get('/:id', usurariosCtrl.findByID);
+// Comprueba si el usuario existe 
+// router.get('/:check-id', usurariosCtrl.findByID);
 // Añadir un coche
-router.post('/', pedidosCtrl.addPedido);
+router.post('/', usurariosCtrl.addUsuario);
 // Modificar los datos de un coche con un ID determinado
-router.put('/:id', pedidosCtrl.updatePedido);
+router.put('/:id', usurariosCtrl.updateUsuario);
 // Eliminar un coche con un ID determinado
-router.delete('/:id', pedidosCtrl.deletePedido);
+router.delete('/:id', usurariosCtrl.deleteUsuario);
 
 
 // Busacar por id
-router.get('/id/:id', pedidosCtrl.findByID);
+router.get('/id/:id', usurariosCtrl.findByID);
 
 
 

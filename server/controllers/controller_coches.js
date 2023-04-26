@@ -1,5 +1,5 @@
-// const Coche = require('../models/coches');
 const Coche = require('../models/coches');
+// import Coche from '../models/coches';
 
 
 
@@ -128,8 +128,8 @@ cochesCtrl.updateCoche = async (req, res) => {
             propulsion    :       req.body.propulsion,
             carroceria    :       req.body.carroceria,
             traccion      :       req.body.traccion
-        }
-        await Coche.findByIdAndUpdate(id,{$set: coche},{new: true}); // El new:true es para que en caso de que no exista lo cree
+        };
+        await findByIdAndUpdate(id,{$set: coche},{new: true}); // El new:true es para que en caso de que no exista lo cree
         res.json({
             status: 0,
             statusText: "Coche actualizado"
@@ -153,11 +153,6 @@ cochesCtrl.deleteCoche = async (req, res) =>{
         statusText: "Coche eliminado con exito"
     })
 };
-
-
-
-
-
 
 
 // Exportamos el controlador de coches

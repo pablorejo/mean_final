@@ -62,5 +62,9 @@ export class UsuariosService {
   findByID(id: String){
     return this.http.get(this.uri + `/id/${id}`);
   }
+
+  comprobarUsuario(id: String){
+    return this.http.get(this.uri + `/check-id/${id}`);
+  }
 }
 

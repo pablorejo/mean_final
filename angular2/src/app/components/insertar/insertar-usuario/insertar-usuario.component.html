@@ -10,8 +10,8 @@
                             <input required class="validate" type="text" name="nombre" #marca="ngModel" [(ngModel)]="usuarioService.selectedUsuario.nombre" placeholder="Marca">
                             <label>Nombre</label>
                         </div>
-                        <div>
-                            <select ngDefaultControl class="browser-default"  name="propulsion" #propulsion="ngModel" [(ngModel)]="usuarioService.selectedUsuario.tipo_de_usuario" >
+                        <div class="input-field col s6">
+                            <select ngDefaultControl class="browser-default"  name="role" #propulsion="ngModel" [(ngModel)]="usuarioService.selectedUsuario.role" >
                                 <option value="" disabled selected>Propulsion del usuario</option>
                                 <option value="Administrador">Administrador</option>
                                 <option value="Usuario">Usuario</option>

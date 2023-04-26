@@ -25,6 +25,7 @@ export class InsertarUsuarioComponent {
   ngOnInit(){
     console.log("iniciando");
     this.getUsuarios();
+    this.resetForm();
   }
   
   // // Definimos la funcion que va a manejar el formulario

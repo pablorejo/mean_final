@@ -16,6 +16,12 @@ export class UsuariosComponent {
   constructor( usuarioServices: UsuariosService){
     this.usuarioServices = usuarioServices;
   }
+
+
+  ngOnInit(){
+    console.log("iniciando");
+    this.getUsuarios();
+  }
   
   busqueda: string = ''; // TExto por el que se va a buscar
   criterio: string = ''; // Criterio para elejir la busqueda

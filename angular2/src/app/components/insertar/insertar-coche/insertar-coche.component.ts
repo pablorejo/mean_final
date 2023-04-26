@@ -26,6 +26,7 @@ export class InsertarCocheComponent {
   ngOnInit(){
     console.log("iniciando");
     this.getCoches();
+    this.resetForm();
   }
   
   // // Definimos la funcion que va a manejar el formulario
