@@ -18,7 +18,7 @@ type Traccion = 'FWD'| 'RWD'| 'AWD'| '4WD'| '4x4';
 
 export class CocheModule { 
   
-  _id: string ;
+  _id:            string ;
   marca:          string;
   modelo:         string;
   color:          string;

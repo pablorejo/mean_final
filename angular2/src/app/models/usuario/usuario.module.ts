@@ -10,20 +10,23 @@ import { CommonModule } from '@angular/common';
 //   ]
 // })
 
-  
 type Role = 'Administrador'| 'Usuario';
 
 export class UsuarioModule { 
   
-  id_usuario: string;
-  tipo_de_usuario: Role;
+  _id:              string;
+  tipo_de_usuario:  Role;
+  nombre:           string;
   
   constructor (
-  id_usuario = '',
-  tipo_de_usuario: Role = 'Usuario', 
-  
-  ){
-    this.id_usuario = id_usuario;
+    _id = '12',
+    tipo_de_usuario: Role = 'Usuario', 
+    nombre: ''
+  )
+  {
+    this.nombre = nombre;
+    this._id = _id;
     this.tipo_de_usuario = tipo_de_usuario;
+
   }
 }

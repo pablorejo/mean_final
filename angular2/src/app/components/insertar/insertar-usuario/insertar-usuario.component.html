@@ -1,0 +1,43 @@
+<div class="row">
+    <div class=" card ">
+        <div class=" card-content col s6 offset-s3">
+            <form #usuarioForm="ngForm" novalidate (ngSubmit)="addUsuario(usuarioForm) ">
+                <div class="row">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="usuarioService.selectedUsuario._id">
+                    
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input required class="validate" type="text" name="nombre" #marca="ngModel" [(ngModel)]="usuarioService.selectedUsuario.nombre" placeholder="Marca">
+                            <label>Nombre</label>
+                        </div>
+                        <div>
+                            <select ngDefaultControl class="browser-default"  name="propulsion" #propulsion="ngModel" [(ngModel)]="usuarioService.selectedUsuario.tipo_de_usuario" >
+                                <option value="" disabled selected>Propulsion del usuario</option>
+                                <option value="Administrador">Administrador</option>
+                                <option value="Usuario">Usuario</option>
+                            </select> 
+                        </div>
+                    </div>
+
+                    
+                    
+
+                    
+                    
+                    <div class="card-action row">
+                        <!-- (click)="addUsuario(usuarioForm)" -->
+                        <a class="btn left" (click)="addUsuario(usuarioForm)">Save
+                            <i class="material-icons right"> save </i>
+                        </a>
+                        <a class="btn right"  (click)="resetForm(usuarioForm, 1)">Clean
+                            <i class = "material-icons right"> clear_all </i> 
+                        </a>
+                        
+                    </div>
+                </div>
+                <!-- Para que funcione  -->
+                <button hidden></button> 
+            </form>
+        </div>
+    </div>
+</div>
