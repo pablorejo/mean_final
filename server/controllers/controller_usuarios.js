@@ -8,6 +8,7 @@ const usuariosCtrl = {};
 /******** MÉTODOS GET *********/
 // GET: Todos los usuarios de la base de datos
 usuariosCtrl.findAllusuarios = async (req, res) => {
+    console.log("Buscando todos los articulos");
     const usuarios = await Usuario.find();
     res.json(usuarios);
 
@@ -19,15 +20,30 @@ usuariosCtrl.findByID = async (req, res) => {
 
     try{
         const usuario = await Usuario.findById(id);
-        res.json(usuario); // Enviamos la respuesta
-        return usuario;
+        res.json({usuario}); // Enviamos la respuesta
     }
     catch (error) {
         res.json({
             status: -1,
             statusText: "ID no encontrado"
         })
-        return 0;
+    }
+};
+
+
+/********** Buscar por nombre*************/
+usuariosCtrl.findNombre = async (req, res) => {
+    console.log("hola");
+    const nombre = req.params.nombre;
+    try {
+        const usuarios = await Usuario.find({nombre});
+        res.json(usuarios);    // Enviamos la respuesta
+    } 
+    catch (error) {
+        res.json({
+            status: -1,
+            statusText: "Marca no encontrada"
+        })
     }
 };
 

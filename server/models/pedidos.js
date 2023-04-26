@@ -5,10 +5,9 @@ const {Schema} = mongoose_pedidos;//Schema que va a modelar el objeto en la base
 
 
 var pedido = new Schema({
-    artículos: [{
-        id_articulo:	String,
-        cantidad:	    Number
-    }],
+    id_usuario:     String,
+    id_articulo:	String,
+    cantidad:	    Number,
     fecha_pedido:	{
         type: Date, 
         default: Date.now    

@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<div class="">
+    <div class="row">
+        <div class="col s12">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>ID Usuario</th>
+                    <th>ID Articulo</th>
+                    <th>Cantidad</th>
+                    <th>Dirección de envio</th>
+                    <th>Fecha de envio</th>
+                    <th class="input-field col s12 m6">
+                        <div>
+                            <label for="">BUSCAR:</label>
+                            <input (input)="buscar()" type="text" [(ngModel)]="busqueda"> 
+                        </div>
+                        <div>
+                            <select [(ngModel)]="criterio">
+                                <option value="" disabled selected>Buscar por:</option>
+                                <option value="ID">ID</option>
+                                <option value="ID ARTICULO">ID ARTICULO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button class="btn" (click)="getPedidos()">Todos</button>
+                        </div>
+                    </th>
+                <tbody>
+
+                    <tr *ngFor="let pedido of pedidoService.pedidos">
+                        <td>   {{pedido._id}}  </td>
+                        <td> {{pedido.id_usuario}} </td>
+                        <td> {{pedido.id_articulo}} </td>
+                        <td> {{pedido.cantidad}} </td>
+                        <td> {{pedido.direccion_de_envio}} </td>
+                        <td> {{pedido.fecha_pedido}} </td>
+                        <td>
+                            <a (click)="editPedido(pedido)" class="btn">
+                                <i class="material-icons">edit</i>
+                            </a>
+                           
+                            <a (click)="deletePedido(pedido._id)" class="btn">
+                                <i class="material-icons">delete</i>
+                            </a>
+                            
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

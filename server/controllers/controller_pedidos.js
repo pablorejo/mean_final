@@ -7,6 +7,7 @@ const pedidosCtrl = {};
 /******** MÉTODOS GET *********/
 // GET: Todos los pedidos de la base de datos
 pedidosCtrl.findAllPedidos = async (req, res) => {
+    console.log("Buscando todos los pedidos");
     const pedidos = await Pedido.find();
     res.json(pedidos);
 
@@ -24,6 +25,22 @@ pedidosCtrl.findByID = async (req, res) => {
         res.json({
             status: -1,
             statusText: "ID no encontrado"
+        })
+    }
+};
+
+
+// GET: Pedido con un id determinado
+pedidosCtrl.findByID_Articulo = async (req, res) => {
+    const id_articulo = req.params.id_articulo;
+    try {
+        const pedidos = await Pedido.find({id_articulo});
+        res.json(pedidos);    // Enviamos la respuesta
+    } 
+    catch (error) {
+        res.json({
+            status: -1,
+            statusText: "Marca no encontrada"
         })
     }
 };
@@ -94,6 +111,7 @@ pedidosCtrl.updatePedido = async (req, res) => {
 //DELETE: Eliminar un Pedido determinado 
 pedidosCtrl.deletePedido = async (req, res) =>{
     await Pedido.findByIdAndRemove(req.params.id);
+    console.log("Eliminar pedido");
     res.json({
         status: 0,
         statusText: "Pedido eliminado con exito"

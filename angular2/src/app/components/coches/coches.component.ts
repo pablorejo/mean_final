@@ -11,6 +11,8 @@ import { CocheModule } from 'src/app/models/coche/coche.module';
 
 // Importamos el servicio de coches para que se pueda usar en el modelo de html
 import { CocheService } from '../../services/coches/coche.service';
+import { PedidoService } from 'src/app/services/pedidos/pedido.service';
+import { PedidoModule } from 'src/app/models/pedido/pedido.module';
 
 declare var M: any; // Esto es de materialize para enviar alertas a los usuarios
 
@@ -30,8 +32,11 @@ export class CochesComponent {
   
   // Creeamos el constructor de la clase y iniciamos el servicio de coche.
   cocheService: CocheService;
-  constructor( cocheService: CocheService){
+  pedidoService: PedidoService;
+
+  constructor( cocheService: CocheService, pedidoService: PedidoService){
     this.cocheService = cocheService;
+    this.pedidoService = pedidoService;
   }
 
   ngOnInit(){
@@ -42,7 +47,9 @@ export class CochesComponent {
 
   busqueda: string = ''; // TExto por el que se va a buscar
   criterio: string = ''; // Criterio para elejir la busqueda
-  
+  cantidad: number = 0; // Cantidad para realizar el envio
+  direccion: string = '' // Direccion a la que se va realizar el envio
+
   buscar(){
     console.log("Buscando " + this.criterio +" que coincida con " + this.busqueda);
     
@@ -53,7 +60,9 @@ export class CochesComponent {
       case "ID":
         this.cocheService.findByID(this.busqueda)
           .subscribe(res =>{
-            this.cocheService.coches = res as CocheModule[];
+            let coche = res as CocheModule;
+            this.cocheService.coches = [coche];
+            console.log(res);
             console.log(res);
           })
         break;
@@ -102,7 +111,8 @@ export class CochesComponent {
       })
   }
 
-    
+
+
   editCoche(coche: CocheModule){
     console.log("Editar coche");
     
@@ -121,5 +131,24 @@ export class CochesComponent {
         
       })
     this.getCoches();
+  }
+
+
+  addPedido(coche: CocheModule){
+    
+    var pedido = new PedidoModule(
+      '', // ID del pedido
+      '', // ID del usuario
+      coche._id, // ID del articulo
+      this.cantidad,
+      new Date(),
+      this.direccion
+    )
+    this.pedidoService.postPedido(pedido)
+      .subscribe(res => {
+        console.log(res);
+        console.log("Pedido añadido");
+        M.toast({html: "Pedido con exito"});
+      })
   }
 }

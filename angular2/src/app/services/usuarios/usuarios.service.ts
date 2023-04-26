@@ -55,7 +55,7 @@ export class UsuariosService {
 
   // Busca por marca
   findByNombre(nombre: String){
-    return this.http.get(this.uri + `/marca/${nombre}`);
+    return this.http.get(this.uri + `/nombre/${nombre}`);
   }
 
   // Busca por id
@@ -63,8 +63,5 @@ export class UsuariosService {
     return this.http.get(this.uri + `/id/${id}`);
   }
 
-  comprobarUsuario(id: String){
-    return this.http.get(this.uri + `/check-id/${id}`);
-  }
 }
 

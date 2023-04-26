@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <div class="">
     <div class="row">
         <div class="col s12">
@@ -15,6 +16,8 @@
                     <th>Propulsión</th>
                     <th>Puertas</th>
                     <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Direccion de envio</th>
                     <th class="input-field col s12 m6">
                         <div>
                             <label for="">BUSCAR:</label>
@@ -47,14 +50,20 @@
                         <td> {{coche.propulsion}} </td>
                         <td> {{coche.puertas}} </td>
                         <td> {{coche.precio}} </td>
+                        <td> <input type="number" [(ngModel)]="cantidad" ></td>
+                        <td> <input type="text" [(ngModel)]="direccion" > </td>
                         <td>
-                            <a (click)="editCoche(coche)" class="btn">
+                            <a (click)="addPedido(coche)" class="btn">
+                                <i class="material-symbols-outlined">shopping_bag</i>
+                            </a>
+                            <!-- <a (click)="editCoche(coche)" class="btn">
                                 <i class="material-icons">edit</i>
                             </a>
                            
                             <a (click)="deleteCoche(coche._id)" class="btn">
                                 <i class="material-icons">delete</i>
-                            </a>
+                            </a> -->
+                            
                         </td>
                         
                     </tr>

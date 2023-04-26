@@ -30,18 +30,19 @@ export class UsuariosComponent {
     console.log("Buscando " + this.criterio +" que coincida con " + this.busqueda);
     
     switch (this.criterio) {
-      // case "TODOS": 
-      //   this.getUsuarios();
-      //   break;
+      case "TODOS": 
+        this.getUsuarios();
+        break;
       case "ID":
         this.usuarioServices.findByID(this.busqueda)
           .subscribe(res =>{
-            this.usuarioServices.usuarios = res as UsuarioModule[];
+            let usuario = res as UsuarioModule;
+            this.usuarioServices.usuarios = [usuario];
             console.log(res);
           })
         break;
       case "NOMBRE":
-        console.log("Buscar por marca");
+        console.log("Buscar por NOMBRE");
         
         this.usuarioServices.findByNombre(this.busqueda)
           .subscribe(res =>{
@@ -55,8 +56,8 @@ export class UsuariosComponent {
   }
 
 
-  findByNombre(marca: string){
-    this.usuarioServices.findByNombre(marca)
+  findByNombre(nombre: string){
+    this.usuarioServices.findByNombre(nombre)
       .subscribe(res =>{
         this.usuarioServices.usuarios = res as UsuarioModule[];
         console.log(res);

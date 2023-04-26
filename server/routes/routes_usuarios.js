@@ -13,8 +13,7 @@ const usurariosCtrl = require('../controllers/controller_usuarios');
 /****** RUTAS PARA LAS FUNCIONES DEL FICHERO CONTROLLER.JS: *******/
 // Devolver todos los Pedidos
 router.get('/', usurariosCtrl.findAllusuarios);
-// Devolver un coche con un ID determinado
-router.get('/:id', usurariosCtrl.findByID);
+
 // Comprueba si el usuario existe 
 // router.get('/:check-id', usurariosCtrl.findByID);
 // Añadir un coche
@@ -26,8 +25,9 @@ router.delete('/:id', usurariosCtrl.deleteUsuario);
 
 
 // Busacar por id
+router.get('/nombre/:nombre', usurariosCtrl.findNombre);
+// Devolver un usuario con un ID determinado
 router.get('/id/:id', usurariosCtrl.findByID);
-
 
 
 

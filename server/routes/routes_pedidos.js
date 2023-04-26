@@ -24,8 +24,7 @@ router.delete('/:id', pedidosCtrl.deletePedido);
 
 
 // Busacar por id
-router.get('/id/:id', pedidosCtrl.findByID);
-
+router.get('/id_articulo/:id', pedidosCtrl.findByID_Articulo);
 
 
 

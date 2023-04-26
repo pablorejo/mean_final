@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http'
-//import { PedidoModule } from '../../models/pedido/pedido.module';
-import { CocheModule } from 'src/app/models/coche/coche.module';
 import { pathsToSkip } from 'mongoose';
 import { PedidoModule } from 'src/app/models/pedido/pedido.module';
 
 const axios = require('axios');
-const uri = "http://localhost:3000/pedidos"
-const uri_coches = "http://localhost:3000/coches";
+const uri_pedidos = "http://localhost:3000/pedidos";
 
 @Injectable({
   providedIn: 'root'
@@ -15,55 +12,47 @@ const uri_coches = "http://localhost:3000/coches";
 export class PedidoService {
   //selectedPedido: PedidoModule;
   //pedidos: PedidoModule[] = [];
-  coches: CocheModule[] = [];
+  pedidos: PedidoModule[] = [];
 
+  // Uri del http
+  uri = "http://localhost:3000/pedidos"
+
+  selectedPedido: PedidoModule;
 
   constructor(private http: HttpClient) { 
-    //this.selectedPedido = new PedidoModule();
+    this.selectedPedido = new PedidoModule();
   } 
 
-  async obtenerGetCoches(){
-    try{
-      var response = await axios.get(uri_coches);
-      return response.data;
-    }catch(error){
-      console.error(error);
-      return -1;
-    }
+  // Nos devolvera un arreglo de empleados que vendran desde nuestro servidor
+  getPedidos(){
+    return this.http.get(this.uri);
   }
 
-  async obtenerDeleteCoche(id_coche : string){
-    try{
-      var response = await axios.delete(uri_coches + `/${id_coche}`);
-      return response;
-      console.log(response.data);
-    }catch(error){
-      return -1;
-      console.error(error);
-    }
+  postPedido(pedido: PedidoModule){
+
+    // al hacer el post tendremos que pasarle la url y el dato que le queremos pasar que en nuestro caso sera el pedido
+    return this.http.post(this.uri, pedido);
   }
 
-  async obtenerFindByID(id_coche : string){
-    try{
-      var response = await axios.get(uri_coches + `/${id_coche}`);
-      return response;
-    }catch(error){
-      console.error(error);
-      return -1;
-    }
-  } //FINDBYID CREO QUE ESTÁ MAL (YA ARREGLADO)
-
-  async obtenerPutCoche(coche: CocheModule){
-    try{
-      var response = await axios.put(uri_coches + `/${coche._id}`, coche);
-      return response;
-    }catch(error){
-      console.error(error);
-      return -1;
-    }
+  putPedido(pedido: PedidoModule){ 
+    // put necesita lo mismo pero nosotros en nuestra api rest le tenemos que pasar el id del empleado para que este
+    // sepa cual es el que tiene que cambiar y de ahi el  + `/${pedido._id}`
+    return this.http.put(this.uri + `/${pedido._id}`, pedido );
   }
 
-  addPedido(pedido :  PedidoModule){
-    return this.http.post(uri, pedido);
+  deletePedido(id: String){
+    // Aqui lo mismo que antes usamos el metodo delete de http y le mandamos el id del pedido que queremos eliminar
+    return this.http.delete(this.uri + `/${id}`);
   }
+
+  // Busca por id
+  findByID(id: String){
+    return this.http.get(this.uri + `/id/${id}`);
+  }
+
+  // Buscar por modelo
+  findByIdArticulo(id_articulo: String){
+    return this.http.get(this.uri + `/modelo/${id_articulo}`);
+  }
+
 }

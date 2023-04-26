@@ -57,8 +57,8 @@ export class CocheService {
   }
 
   // Busca por id
-  findByID(marca: String){
-    return this.http.get(this.uri + `/id/${marca}`);
+  findByID(id: String){
+    return this.http.get(this.uri + `/id/${id}`);
   }
 
   // Buscar por modelo
