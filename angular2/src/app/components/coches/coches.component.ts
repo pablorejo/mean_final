@@ -113,27 +113,36 @@ export class CochesComponent {
 
 
   addPedido(coche: CocheModule){
-    
-    if (coche.cantidad > this.cantidad && this.cantidad > 0){ // Para tener en cuenta la cantidad
-      
-      var pedido = new PedidoModule(
-        '', // ID del pedido
-        '', // ID del usuario
-        coche._id, // ID del articulo
-        this.cantidad,
-        new Date(),
-        this.direccion
-      )
-      console.log(pedido);
-      
-      this.pedidoService.postPedido(pedido)
+    this.getCoches();
+    if (coche.cantidad >= this.cantidad && this.cantidad > 0){ // Para tener en cuenta la cantidad
+      coche.cantidad = coche.cantidad - this.cantidad;
+      this.cocheService.putCoche(coche) // Actualizamos la cantidad
         .subscribe(res => {
+          this.getCoches(); // Actualizamos la lista de coches
           console.log(res);
-          console.log("Pedido añadido");
-          M.toast({html: "Pedido con exito"});
+          console.log("Pedido Actualizado");
+          var pedido = new PedidoModule(
+            '', // ID del pedido
+            '', // ID del usuario
+            coche._id, // ID del articulo
+            this.cantidad,
+            new Date(),
+            this.direccion
+          )
+          console.log(pedido);
+          
+          this.pedidoService.postPedido(pedido)
+            .subscribe(res => {
+              console.log(res);
+              console.log("Pedido añadido");
+              M.toast({html: "Pedido con exito"});
+              
+            })
         })
     }else {
-      M.toast({html: "Cantidad insuficiente"})
+      M.toast({html: "Cantidad incorrecta"})
     }
+
+    
   }
 }

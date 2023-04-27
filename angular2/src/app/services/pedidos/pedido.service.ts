@@ -3,6 +3,7 @@ import { HttpClient} from '@angular/common/http'
 import { pathsToSkip } from 'mongoose';
 import { PedidoModule } from 'src/app/models/pedido/pedido.module';
 import { CocheModule } from 'src/app/models/coche/coche.module';
+import { CocheService } from '../coches/coche.service';
 
 
 const axios = require('axios');
@@ -17,12 +18,17 @@ export class PedidoService {
   //pedidos: PedidoModule[] = [];
   pedidos: PedidoModule[] = [];
 
-
+  serviceCoche: CocheService;
   selectedPedido: PedidoModule;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, serviceCoche: CocheService) { 
     this.selectedPedido = new PedidoModule();
+    this.serviceCoche = serviceCoche;
   } 
+
+
+ 
+
 
   // Nos devolvera un arreglo de empleados que vendran desde nuestro servidor
   getPedidos(){
@@ -30,7 +36,6 @@ export class PedidoService {
   }
 
   postPedido(pedido: PedidoModule){
-
     // al hacer el post tendremos que pasarle la url y el dato que le queremos pasar que en nuestro caso sera el pedido
     return this.http.post(uri_pedidos, pedido);
   }

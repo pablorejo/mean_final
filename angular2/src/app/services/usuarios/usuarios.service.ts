@@ -12,8 +12,8 @@ export class UsuariosService {
 
   selectedUsuario: UsuarioModule;
   usuarios: UsuarioModule[] = [];
-
-
+  
+  currentuser: UsuarioModule;
   // instanciamos el httpclient en el constructor de la clase
   constructor(private http: HttpClient) { 
     this.selectedUsuario = new UsuarioModule(
@@ -21,7 +21,15 @@ export class UsuariosService {
       'Administrador',
       ''
       );
+    this.currentuser = new UsuarioModule(
+      '',
+      'Usuario',
+      ''
+    )
   } 
+
+
+
  
 
 
@@ -44,7 +52,7 @@ export class UsuariosService {
 
   putUsuario(usuario: UsuarioModule){ 
     // put necesita lo mismo pero nosotros en nuestra api rest le tenemos que pasar el id del empleado para que este
-    // sepa cual es el que tiene que cambiar y de ahi el  + `/${coche._id}`
+    // sepa cual es el que tiene que cambiar y de ahi el  + `/${coche._id}
     return this.http.put(this.uri + `/${usuario._id}`, usuario );
   }
 

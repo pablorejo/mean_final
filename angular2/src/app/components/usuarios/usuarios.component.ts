@@ -16,7 +16,8 @@ export class UsuariosComponent {
   constructor( usuarioServices: UsuariosService){
     this.usuarioServices = usuarioServices;
   }
-
+  
+  
 
   ngOnInit(){
     console.log("iniciando");

@@ -78,7 +78,7 @@ cochesCtrl.addCoche = async (req,res) => {
         
         
     try {
-        const coche = { // Creamos un nuevo objeto coche que recibimos en el body del request 
+        const coche = Coche({ // Creamos un nuevo objeto coche que recibimos en el body del request 
             marca:          req.body.marca,          
             modelo:         req.body.modelo,
             color:          req.body.color,
@@ -92,7 +92,7 @@ cochesCtrl.addCoche = async (req,res) => {
             propulsion:     req.body.propulsion,
             carroceria:     req.body.carroceria,
             traccion:       req.body.traccion
-        };
+        });
         await coche.save(); // Esto tambien puede tomar bastante tiempo por eso le ponemos el await
         console.log("Ok coche guardado\n");
         res.json({
