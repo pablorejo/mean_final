@@ -156,4 +156,70 @@
             </form>
         </div>
     </div>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<div class="">
+    <div class="row">
+        <div class="col s12">
+            <table>
+                <thead>
+                    <th>ID</th>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Año de matriculación </th>
+                    <th>Cantidad</th>
+                    <th>Carroceria</th>
+                    <th>Color</th>
+                    <th>CV</th>
+                    <th>Etiqueta</th>
+                    <th>Propulsión</th>
+                    <th>Puertas</th>
+                    <th>Precio</th>
+                    <th class="input-field col s12 m6">
+                        <div>
+                            <label for="">BUSCAR:</label>
+                            <input (input)="buscar()" type="text" [(ngModel)]="busqueda"> 
+                        </div>
+                        <div>
+                            <select [(ngModel)]="criterio">
+                                <option value="" disabled selected>Buscar por:</option>
+                                <option value="ID">ID</option>
+                                <option value="MARCA">MARCA</option>
+                                <option value="MODELO">MODELO</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button class="btn" (click)="getCoches()">Todos</button>
+                        </div>
+                    </th>
+                <tbody>
+
+                    <tr *ngFor="let coche of cocheService.coches">
+                        <td> {{coche._id}} </td>
+                        <td> {{coche.marca}} </td>
+                        <td> {{coche.modelo}} </td>
+                        <td> {{coche.a_matricula}} </td>
+                        <td> {{coche.cantidad}} </td>
+                        <td> {{coche.carroceria}} </td>
+                        <td> {{coche.color}} </td>
+                        <td> {{coche.cv}} </td>
+                        <td> {{coche.etiqueta}} </td>
+                        <td> {{coche.propulsion}} </td>
+                        <td> {{coche.puertas}} </td>
+                        <td> {{coche.precio}} </td>
+                        <td>
+                            <a (click)="editCoche(coche)" class="btn">
+                                <i class="material-icons">edit</i>
+                            </a>
+                           
+                            <a (click)="deleteCoche(coche._id)" class="btn">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </div>

@@ -29,6 +29,74 @@ export class InsertarCocheComponent {
     this.resetForm();
   }
   
+  busqueda: string = ''; // TExto por el que se va a buscar
+  criterio: string = ''; // Criterio para elejir la busqueda
+
+
+  buscar(){
+    console.log("Buscando " + this.criterio +" que coincida con " + this.busqueda);
+    
+
+    switch (this.criterio) {
+      case "ID":
+        this.cocheService.findByID(this.busqueda)
+          .subscribe(res =>{
+            let coche = res as CocheModule;
+            this.cocheService.coches = [coche];
+            console.log(res);
+            console.log(res);
+          })
+        break;
+      case "MARCA":
+        console.log("Buscar por marca");
+        
+        this.cocheService.findByMarca(this.busqueda)
+          .subscribe(res =>{
+            this.cocheService.coches = res as CocheModule[];
+            console.log(res);
+          })
+        break;
+      case "MODELO":
+        this.cocheService.findByModelo(this.busqueda)
+          .subscribe(res =>{
+            this.cocheService.coches = res as CocheModule[];
+            console.log(res);
+          })
+        break;
+      default:
+        break;
+    }
+  }
+
+  editCoche(coche: CocheModule){
+    console.log("Editar coche");
+    
+    this.cocheService.selectedCoche = coche;
+    this.cocheService.putCoche(coche)
+      .subscribe(res => {
+        console.log(res);
+        this.getCoches();
+        console.log("Coche editado");
+        M.toast({html: "Eliminado con exito"});
+        
+      })
+    this.getCoches();
+  }
+
+  deleteCoche(_id: string){
+    console.log("Eliminar coche");
+    
+    this.cocheService.deleteCoche(_id)
+      .subscribe(res => {
+        console.log(res);
+        this.getCoches();
+        console.log("Coche eliminado");
+        M.toast({html: "Eliminado con exito"});
+        
+      })
+    this.getCoches();
+  }
+  
   // // Definimos la funcion que va a manejar el formulario
   addCoche(form:NgForm){
     // En caso de que existe el id lo actualizamos

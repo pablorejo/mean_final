@@ -61,7 +61,8 @@ pedidosCtrl.addPedido = async (req,res) => {
     try {
         const pedido = new Pedido({ // Creamos un nuevo objeto Pedido que recibimos en el body del request 
             id_usuario:     req.body.id_usuario,
-            artículos:      req.body.artículos,
+            id_articulo:      req.body.id_articulo,
+            cantidad:       req.body.cantidad,
             fecha_pedido:   req.body.fecha_pedido,  
             direccion_de_envio: req.body.direccion_de_envio  
         });
@@ -88,7 +89,8 @@ pedidosCtrl.updatePedido = async (req, res) => {
     
         const pedido = {
             id_usuario:     req.body.id_usuario,
-            artículos:      req.body.artículos,
+            id_articulo:      req.body.id_articulo,
+            cantidad:       req.body.cantidad,
             fecha_pedido:   req.body.fecha_pedido,  
             direccion_de_envio: req.body.direccion_de_envio  
         }

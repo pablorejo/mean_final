@@ -113,25 +113,7 @@ export class CochesComponent {
 
 
 
-  editCoche(coche: CocheModule){
-    console.log("Editar coche");
-    
-    this.cocheService.selectedCoche = coche;
-  }
 
-  deleteCoche(_id: string){
-    console.log("Eliminar coche");
-    
-    this.cocheService.deleteCoche(_id)
-      .subscribe(res => {
-        console.log(res);
-        this.getCoches();
-        console.log("Coche eliminado");
-        M.toast({html: "Eliminado con exito"});
-        
-      })
-    this.getCoches();
-  }
 
 
   addPedido(coche: CocheModule){
@@ -144,6 +126,8 @@ export class CochesComponent {
       new Date(),
       this.direccion
     )
+    console.log(pedido);
+    
     this.pedidoService.postPedido(pedido)
       .subscribe(res => {
         console.log(res);
