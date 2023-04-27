@@ -112,9 +112,6 @@ export class CochesComponent {
   }
 
 
-
-
-
   addPedido(coche: CocheModule){
     
     if (coche.cantidad > this.cantidad && this.cantidad > 0){ // Para tener en cuenta la cantidad

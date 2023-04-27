@@ -15,7 +15,7 @@ type Role = 'Administrador'| 'Usuario';
 export class UsuarioModule { 
   
   _id:              string;
-  role:  Role;
+  role:             Role;
   nombre:           string;
   
   constructor (

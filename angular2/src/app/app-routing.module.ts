@@ -15,7 +15,6 @@ const routes: Routes = [
   {path: 'pedidos', component: PedidosComponent},
   {path: 'insertar-coche', component: InsertarCocheComponent},
   {path: 'insertar-usuario', component: InsertarUsuarioComponent},
-  {path: 'usuarios', component: UsuariosComponent},
   {path: 'inicio-sesion', component: InicioSesionComponent}
 ];
 

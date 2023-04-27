@@ -16,10 +16,11 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { InsertarCocheComponent } from './components/insertar/insertar-coche/insertar-coche.component';
 import { InsertarUsuarioComponent } from './components/insertar/insertar-usuario/insertar-usuario.component';
 import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.component';
+import { ModificarComponent } from './components/pedidos/modificar/modificar.component';
 @NgModule({
   declarations: [
     AppComponent, // Declaracion del componente principar 
-    CochesComponent, PedidosComponent, NavbarComponent, UsuariosComponent, InsertarCocheComponent, InsertarUsuarioComponent, InicioSesionComponent, // Declaramos el componente de coches
+    CochesComponent, PedidosComponent, NavbarComponent, UsuariosComponent, InsertarCocheComponent, InsertarUsuarioComponent, InicioSesionComponent, ModificarComponent, // Declaramos el componente de coches
   ],
   imports: [
     BrowserModule,

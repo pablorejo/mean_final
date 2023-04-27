@@ -77,7 +77,6 @@ export class UsuariosComponent {
     
   editUsuario(Usuario: UsuarioModule){
     console.log("Editar Usuario");
-    
     this.usuarioServices.selectedUsuario = Usuario;
   }
 

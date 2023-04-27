@@ -85,15 +85,16 @@ usuariosCtrl.addUsuario = async (req,res) => {
 // PUT: Modificar los datos de un Usuario determinado
 //En los parametros de la búsqueda (req) vamos a poner el id de la película que queramos
 usuariosCtrl.updateUsuario = async (req, res) => {
+    console.log("Update usuario");
     const { id } = req.params; //Guardamos el id que recibimos por request
     try {
-    
-        const Usuario = {
+        
+        const usuario = { // Creamos un nuevo objeto Usuario que recibimos en el body del request 
             nombre:         req.body.nombre,
             role:           req.body.role
-        }
+        };
         
-        await Usuario.findByIdAndUpdate(id,{$set: Usuario},{new: true}); // El new:true es para que en caso de que no exista lo cree
+        await Usuario.findByIdAndUpdate(id,{$set: usuario},{new: true}); // El new:true es para que en caso de que no exista lo cree
         res.json({
             status: 0,
             statusText: "Usuario actualizado"

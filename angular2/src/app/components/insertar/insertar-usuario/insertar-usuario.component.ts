@@ -16,23 +16,90 @@ declare var M: any; // Esto es de materialize para enviar alertas a los usuarios
 export class InsertarUsuarioComponent {
 
 
-  // Creeamos el constructor de la clase y iniciamos el servicio de usuario.
-  usuarioService: UsuariosService;
-  constructor( usuarioService: UsuariosService){
-    this.usuarioService = usuarioService;
-  }
+    // Creeamos el constructor de la clase y iniciamos el servicio de usuario.
+    usuarioService: UsuariosService;
+    constructor( usuarioService: UsuariosService){
+      this.usuarioService = usuarioService;
+    }
 
-  ngOnInit(){
-    console.log("iniciando");
-    this.getUsuarios();
-    this.resetForm();
-  }
+    ngOnInit(){
+      console.log("iniciando");
+      this.getUsuarios();
+      this.resetForm();
+    }
+
+ 
+  
+ 
+    
+    busqueda: string = ''; // TExto por el que se va a buscar
+    criterio: string = ''; // Criterio para elejir la busqueda
+  
+    buscar(){
+      console.log("Buscando " + this.criterio +" que coincida con " + this.busqueda);
+      
+      switch (this.criterio) {
+        case "TODOS": 
+          this.getUsuarios();
+          break;
+        case "ID":
+          this.usuarioService.findByID(this.busqueda)
+            .subscribe(res =>{
+              let usuario = res as UsuarioModule;
+              this.usuarioService.usuarios = [usuario];
+              console.log(res);
+            })
+          break;
+        case "NOMBRE":
+          console.log("Buscar por NOMBRE");
+          
+          this.usuarioService.findByNombre(this.busqueda)
+            .subscribe(res =>{
+              this.usuarioService.usuarios = res as UsuarioModule[];
+              console.log(res);
+            })
+          break;
+        default:
+          break;
+      }
+    }
+  
+  
+    findByNombre(nombre: string){
+      this.usuarioService.findByNombre(nombre)
+        .subscribe(res =>{
+          this.usuarioService.usuarios = res as UsuarioModule[];
+          console.log(res);
+        })
+    }
+
+  
+      
+    editUsuario(Usuario: UsuarioModule){
+      console.log("Editar Usuario");
+      this.usuarioService.selectedUsuario = Usuario;
+    }
+  
+    deleteUsuario(_id: string){
+      console.log("Eliminar Usuario");
+      
+      this.usuarioService.deleteUsuario(_id)
+        .subscribe(res => {
+          console.log(res);
+          this.getUsuarios();
+          console.log("Usuario eliminado");
+          M.toast({html: "Eliminado con exito"});
+          
+        })
+      this.getUsuarios();
+    }
   
   // // Definimos la funcion que va a manejar el formulario
   addUsuario(form:NgForm){
     // En caso de que existe el id lo actualizamos
     if (form.value._id){
       console.log("Editando usuario");
+      console.log(form.value);
       this.usuarioService.putUsuario(form.value)
 
         .subscribe(res =>{

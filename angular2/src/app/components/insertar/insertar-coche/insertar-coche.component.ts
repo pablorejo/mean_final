@@ -72,15 +72,6 @@ export class InsertarCocheComponent {
     console.log("Editar coche");
     
     this.cocheService.selectedCoche = coche;
-    this.cocheService.putCoche(coche)
-      .subscribe(res => {
-        console.log(res);
-        this.getCoches();
-        console.log("Coche editado");
-        M.toast({html: "Eliminado con exito"});
-        
-      })
-    this.getCoches();
   }
 
   deleteCoche(_id: string){

@@ -41,3 +41,51 @@
         </div>
     </div>
 </div>
+
+<div>
+    <div class="row">
+        <div class="centrar col s8 offset-s2">
+            <table class="row">
+                <thead>
+                    <th>ID</th>
+                    <th>NOMBRE</th>
+                    <th>ROL</th>
+                    <th class="input-field col s4">
+                        <div>
+                            <label for="">BUSCAR:</label>
+                            <input (input)="buscar()" type="text" [(ngModel)]="busqueda"> 
+                        </div>
+                        <div>
+                            <select [(ngModel)]="criterio">
+                                <option value="" disabled selected>Buscar por:</option>
+                                <option value="ID">ID</option>
+                                <option value="NOMBRE">NOMBRE</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button class="btn" (click)="getUsuarios()">Todos</button>
+                        </div>
+                    </th>
+
+
+                <tbody>
+                    <tr *ngFor="let usuario of usuarioService.usuarios">
+                        <td> {{usuario._id}} </td>
+                        <td> {{usuario.nombre}} </td>
+                        <td> {{usuario.role}} </td>
+                        <td>
+                            <a (click)="editUsuario(usuario)" class="btn">
+                                <i class="material-icons">edit</i>
+                            </a>
+                            
+                            <a (click)="deleteUsuario(usuario._id)" class="btn">
+                                <i class="material-icons">delete</i>
+                            </a>
+                        </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

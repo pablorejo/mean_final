@@ -87,14 +87,14 @@ pedidosCtrl.updatePedido = async (req, res) => {
     const { id } = req.params; //Guardamos el id que recibimos por request
     try {
     
-        const pedido = {
+        const pedido = { // Creamos un nuevo objeto Pedido que recibimos en el body del request 
             id_usuario:     req.body.id_usuario,
             id_articulo:      req.body.id_articulo,
             cantidad:       req.body.cantidad,
             fecha_pedido:   req.body.fecha_pedido,  
             direccion_de_envio: req.body.direccion_de_envio  
-        }
-        await pedido.findByIdAndUpdate(id,{$set: Pedido},{new: true}); // El new:true es para que en caso de que no exista lo cree
+        };
+        await Pedido.findByIdAndUpdate(id,{$set: pedido},{new: true}); // El new:true es para que en caso de que no exista lo cree
         res.json({
             status: 0,
             statusText: "Pedido actualizado"
