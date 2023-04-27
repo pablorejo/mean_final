@@ -115,24 +115,28 @@ export class CochesComponent {
 
 
 
-
   addPedido(coche: CocheModule){
     
-    var pedido = new PedidoModule(
-      '', // ID del pedido
-      '', // ID del usuario
-      coche._id, // ID del articulo
-      this.cantidad,
-      new Date(),
-      this.direccion
-    )
-    console.log(pedido);
-    
-    this.pedidoService.postPedido(pedido)
-      .subscribe(res => {
-        console.log(res);
-        console.log("Pedido añadido");
-        M.toast({html: "Pedido con exito"});
-      })
+    if (coche.cantidad > this.cantidad && this.cantidad > 0){ // Para tener en cuenta la cantidad
+      
+      var pedido = new PedidoModule(
+        '', // ID del pedido
+        '', // ID del usuario
+        coche._id, // ID del articulo
+        this.cantidad,
+        new Date(),
+        this.direccion
+      )
+      console.log(pedido);
+      
+      this.pedidoService.postPedido(pedido)
+        .subscribe(res => {
+          console.log(res);
+          console.log("Pedido añadido");
+          M.toast({html: "Pedido con exito"});
+        })
+    }else {
+      M.toast({html: "Cantidad insuficiente"})
+    }
   }
 }

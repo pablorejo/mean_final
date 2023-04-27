@@ -1,1 +1,30 @@
-<p>inicio-sesion works!</p>
+<div class="row">
+    <div class=" card ">
+        <div class=" card-content col s6 offset-s3">
+            <form #usuarioForm="ngForm" novalidate (ngSubmit)="iniciarSesion(usuarioForm) ">
+                <div class="row">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="usuarioService.selectedUsuario._id">
+                    
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input required class="validate" type="text" name="id" #marca="ngModel" [(ngModel)]="usuarioService.selectedUsuario.nombre" placeholder="Marca">
+                            <label>ID</label>
+                        </div>
+                    </div>
+
+                    
+                    
+
+                    
+                    
+                    <div class="card-action row">
+                        <a class="btn left" (click)="iniciarSesion(usuarioForm)">Iniciar Sesion
+                            <i class="material-icons right"> account_box </i>
+                        </a>
+                    </div>
+                </div>
+                <button hidden></button> 
+            </form>
+        </div>
+    </div>
+</div>
