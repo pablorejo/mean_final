@@ -20,7 +20,7 @@ usuariosCtrl.findByID = async (req, res) => {
 
     try{
         const usuario = await Usuario.findById(id);
-        res.json({usuario}); // Enviamos la respuesta
+        res.json(usuario); // Enviamos la respuesta
     }
     catch (error) {
         res.json({

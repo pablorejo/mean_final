@@ -26,22 +26,26 @@ export class InicioSesionComponent {
 
   iniciarSesion(form:NgForm){
     console.log("Iniciando sesión");
-    var user = form.value as UsuarioModule;
-    console.log(user);
-    this.usuarioService.findByID(user._id)
+
+    this.usuarioService.findByID(form.value._id)
       .subscribe(res =>{
         var loging = res as {status: number, statusText: string} // Comprobar el estado de la conexión
-        var user2 = res as UsuarioModule;
-        console.log(user2);
-        if (loging.status != -1){
-          M.toast({html: "Inicio de sesion con éxito"});
-          this.usuarioService.currentuser = user2;
-          this.router.navigate(['coches'])
-          
+        let user = res as UsuarioModule;
+
+        if (loging.status != -1) {
+          if(user.role === "Administrador"){
+            M.toast({html: "Inicio de sesion con éxito"});
+            this.usuarioService.currentuser = user;
+            this.router.navigate(['administracion/coches']);
+          }else if(user.role === "Usuario"){
+            M.toast({html: "Inicio de sesion con éxito"});
+            this.usuarioService.currentuser = user;
+            this.router.navigate(['usuario/coches']);
+          }
         }else{
           M.toast({html: "Inicio de sesion fallido"});
-          this.usuarioService.currentuser = user2;
-          user2._id = "";
+          this.usuarioService.currentuser = user;
+          user._id = "";
         }
       })
   }
