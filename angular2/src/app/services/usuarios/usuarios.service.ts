@@ -28,11 +28,6 @@ export class UsuariosService {
     )
   } 
 
-
-
- 
-
-
   // Uri del http
   uri = "http://localhost:3000/usuarios"
 

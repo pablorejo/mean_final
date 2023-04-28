@@ -13,6 +13,7 @@ import { CocheModule } from 'src/app/models/coche/coche.module';
 import { CocheService } from '../../services/coches/coche.service';
 import { PedidoService } from 'src/app/services/pedidos/pedido.service';
 import { PedidoModule } from 'src/app/models/pedido/pedido.module';
+import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
 declare var M: any; // Esto es de materialize para enviar alertas a los usuarios
 
@@ -33,10 +34,12 @@ export class CochesComponent {
   // Creeamos el constructor de la clase y iniciamos el servicio de coche.
   cocheService: CocheService;
   pedidoService: PedidoService;
+  usuariosService: UsuariosService; // Usuario actual
 
-  constructor( cocheService: CocheService, pedidoService: PedidoService){
+  constructor( cocheService: CocheService, pedidoService: PedidoService, usuariosService: UsuariosService){
     this.cocheService = cocheService;
     this.pedidoService = pedidoService;
+    this.usuariosService = usuariosService;
   }
 
   ngOnInit(){
@@ -123,7 +126,7 @@ export class CochesComponent {
           console.log("Pedido Actualizado");
           var pedido = new PedidoModule(
             '', // ID del pedido
-            '', // ID del usuario
+            this.usuariosService.currentuser._id, // ID del usuario
             coche._id, // ID del articulo
             this.cantidad,
             new Date(),

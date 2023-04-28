@@ -4,6 +4,7 @@ import { pathsToSkip } from 'mongoose';
 import { PedidoModule } from 'src/app/models/pedido/pedido.module';
 import { CocheModule } from 'src/app/models/coche/coche.module';
 import { CocheService } from '../coches/coche.service';
+import { UsuarioModule } from 'src/app/models/usuario/usuario.module';
 
 
 const axios = require('axios');

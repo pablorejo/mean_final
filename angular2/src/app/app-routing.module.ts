@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'inicio-sesion', pathMatch: 'full'},
   {path: 'inicio-sesion', component: InicioSesionComponent},
   {path: 'usuario/coches', component: CochesComponent},
-  {path: 'usuario/insertar', component: UsuariosComponent},
+  {path: 'usuario/insertar', component: InsertarUsuarioComponent},
   {path: 'usuario/pedidos', component: PedidosComponent},
   {path: 'administracion/coches', component: InsertarCocheComponent},
   {path: 'administracion/users', component: InsertarUsuarioComponent}

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PedidoModule } from 'src/app/models/pedido/pedido.module';
 import { PedidoService } from 'src/app/services/pedidos/pedido.service';
+import { UsuariosService } from 'src/app/services/usuarios/usuarios.service';
 
 declare var M: any; // Esto es de materialize para enviar alertas a los usuarios
 
@@ -16,9 +17,11 @@ export class PedidosComponent {
   
   // Creeamos el constructor de la clase y iniciamos el servicio de pedido.
   pedidoService: PedidoService;
+  usuarioService: UsuariosService;
 
-  constructor( pedidoService: PedidoService){
+  constructor( pedidoService: PedidoService, usuarioService: UsuariosService){
     this.pedidoService = pedidoService;
+    this.usuarioService = usuarioService;
   }
 
   ngOnInit(){
@@ -67,6 +70,7 @@ export class PedidosComponent {
 
   
   getPedidos(){
+    console.log(this.usuarioService);
     console.log("obtener pedidos");
     
     this.pedidoService.getPedidos()
