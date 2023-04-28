@@ -18,10 +18,11 @@ import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.
 import { ModificarComponent } from './components/pedidos/modificar/modificar.component';
 import { NavbarUsersComponent } from './components/navbar-users/navbar-users.component';
 import { NavbarAdminComponent } from './components/navbar-admin/navbar-admin.component';
+import { NavbarInicioSesionComponent } from './components/inicio-sesion/navbar-inicio-sesion/navbar-inicio-sesion.component';
 @NgModule({
   declarations: [
     AppComponent, // Declaracion del componente principar 
-    CochesComponent, PedidosComponent, UsuariosComponent, InsertarCocheComponent, InsertarUsuarioComponent, InicioSesionComponent, ModificarComponent, NavbarUsersComponent, NavbarAdminComponent, // Declaramos el componente de coches
+    CochesComponent, PedidosComponent, UsuariosComponent, InsertarCocheComponent, InsertarUsuarioComponent, InicioSesionComponent, ModificarComponent, NavbarUsersComponent, NavbarAdminComponent, NavbarInicioSesionComponent, // Declaramos el componente de coches
   ],
   imports: [
     BrowserModule,
