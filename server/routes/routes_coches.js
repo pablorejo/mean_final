@@ -14,7 +14,7 @@ const cochesCtrl = require('../controllers/controller_coches');
 // Devolver todos los Coches
 router.get('/', cochesCtrl.findAllCoches);
 // Devolver un coche con un ID determinado
-router.get('/:id', cochesCtrl.findByID);
+// router.get('/:id', cochesCtrl.findByID);
 // Añadir un coche
 router.post('/', cochesCtrl.addCoche);
 // Modificar los datos de un coche con un ID determinado

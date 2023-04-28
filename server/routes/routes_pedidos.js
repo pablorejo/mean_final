@@ -14,7 +14,7 @@ const pedidosCtrl = require('../controllers/controller_pedidos');
 // Devolver todos los Pedidos
 router.get('/', pedidosCtrl.findAllPedidos);
 // Devolver un pedidoe con un ID determinado
-router.get('/:id', pedidosCtrl.findByID);
+router.get('/id/:id', pedidosCtrl.findByID);
 // Añadir un pedidoe
 router.post('/', pedidosCtrl.addPedido);
 // Modificar los datos de un pedidoe con un ID determinado

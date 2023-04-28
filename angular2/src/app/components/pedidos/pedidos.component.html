@@ -1,6 +1,45 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <app-navbar-users></app-navbar-users>
-<app-modificar></app-modificar>
+
+<div class="row">
+    <div class=" card ">
+        <div class=" card-content col s6 offset-s3">
+            <form #usuarioForm="ngForm" novalidate (ngSubmit)="addPedido(usuarioForm) ">
+                <div class="row">
+                    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="pedidoService.selectedPedido._id">
+                    
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input required class="validate" type="number" name="cantidad" #marca="ngModel" [(ngModel)]="pedidoService.selectedPedido.cantidad">
+                            <label>Cantidad</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                            <input required class="validate" type="text" name="direccion_de_envio" #marca="ngModel" [(ngModel)]="pedidoService.selectedPedido.direccion_de_envio">
+                            <label>Dirección de envio</label>
+                        </div>
+                    </div>
+
+                    
+                    
+                    <div class="card-action row">
+                        <!-- (click)="addUsuario(usuarioForm)" -->
+                        <a class="btn left" (click)="addPedido(usuarioForm)">Editar
+                            <i class="material-icons right"> edit </i>
+                        </a>
+                        <a class="btn right"  (click)="resetForm(usuarioForm, 1)">Clean
+                            <i class = "material-icons right"> clear_all </i> 
+                        </a>
+                        
+                    </div>
+                </div>
+                <!-- Para que funcione  -->
+                <button hidden></button> 
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="">
     <div class="row">
         <div class="col s8 offset-s2">
